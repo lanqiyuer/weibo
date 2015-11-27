@@ -89,8 +89,8 @@
 			children = (
 				04033E431C08683A00F0CB05 /* Main */,
 				04033E421C08683A00F0CB05 /* Home */,
-				04033E411C08683A00F0CB05 /* Discover */,
 				04033E441C08683A00F0CB05 /* Message */,
+				04033E411C08683A00F0CB05 /* Discover */,
 				04033E451C08683A00F0CB05 /* Profile */,
 			);
 			path = Module;
