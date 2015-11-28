@@ -9,13 +9,19 @@
 import UIKit
 
 class MainViewController: UITabBarController {
-
+    
+    
+    let mainTabBar = MainTabBar()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //系统的tabBar 是只读属性，不能直接操作
         //需要自定义tabBar，用KVC机制动态修改tabBar身份
-        let mainTabBar = MainTabBar()
+        
         setValue(mainTabBar, forKey: "tabBar")
+        //撰写按钮响应事件
+        mainTabBar.composeBtn.addTarget(self, action: "composeBtnDidClick", forControlEvents: .TouchUpInside)
         
 //        //打印对象类的字段
 //        print(tabBar.classForCoder)
@@ -23,8 +29,21 @@ class MainViewController: UITabBarController {
        addChildViewControllers()
     
     }
+    
 
-    //添加首页的 tabBarController 
+    //方法选择处理器 崩溃在MAIN地方时 是因为  OC机制导致的错误
+    //MARK: 撰写按钮的监听事件
+    //target-action 机制 直接使用OC
+    //方法选择器 相关的这种机制  都是OC中机制
+    //为了 让 swift中的语法 能够兼容OC方法选择器 需要使用 @objc
+    @objc private func composeBtnDidClick() {
+            print(__FUNCTION__)
+    }
+    
+    
+    
+    
+    //添加首页的 tabBarController
     private func addChildViewControllers() {
         
         //颜色这样设置提升效率
