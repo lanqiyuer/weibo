@@ -14,6 +14,8 @@
 		04033E4D1C086B1500F0CB05 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04033E4C1C086B1500F0CB05 /* DiscoverTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		04033E4F1C086BEF00F0CB05 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04033E4E1C086BEF00F0CB05 /* MessageTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		04033E511C086C6B00F0CB05 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04033E501C086C6B00F0CB05 /* ProfileTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		04033E531C0880DC00F0CB05 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04033E521C0880DC00F0CB05 /* MainTabBar.swift */; settings = {ASSET_TAGS = (); }; };
+		0475245C1C0948100018061F /* Comman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0475245B1C0948100018061F /* Comman.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		04033E4C1C086B1500F0CB05 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		04033E4E1C086BEF00F0CB05 /* MessageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
 		04033E501C086C6B00F0CB05 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		04033E521C0880DC00F0CB05 /* MainTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		0475245B1C0948100018061F /* Comman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comman.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				04033E481C08685A00F0CB05 /* MainViewController.swift */,
+				04033E521C0880DC00F0CB05 /* MainTabBar.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 		04033E461C08683A00F0CB05 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				0475245B1C0948100018061F /* Comman.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -220,6 +226,8 @@
 			files = (
 				04033E511C086C6B00F0CB05 /* ProfileTableViewController.swift in Sources */,
 				04033E4B1C086ABD00F0CB05 /* HomeTableViewController.swift in Sources */,
+				0475245C1C0948100018061F /* Comman.swift in Sources */,
+				04033E531C0880DC00F0CB05 /* MainTabBar.swift in Sources */,
 				04033E491C08685A00F0CB05 /* MainViewController.swift in Sources */,
 				04033E4F1C086BEF00F0CB05 /* MessageTableViewController.swift in Sources */,
 				04033E4D1C086B1500F0CB05 /* DiscoverTableViewController.swift in Sources */,
@@ -360,6 +368,7 @@
 				04033E2E1C08679F00F0CB05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

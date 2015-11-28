@@ -12,6 +12,13 @@ class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //系统的tabBar 是只读属性，不能直接操作
+        //需要自定义tabBar，用KVC机制动态修改tabBar身份
+        let mainTabBar = MainTabBar()
+        setValue(mainTabBar, forKey: "tabBar")
+        
+//        //打印对象类的字段
+//        print(tabBar.classForCoder)
 
        addChildViewControllers()
     
