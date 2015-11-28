@@ -11,7 +11,7 @@ import UIKit
 class BaseTableViewController: UITableViewController {
 
     //添加一个用户登录标记
-    var userLogin = true
+    var userLogin = false
     
     
     
@@ -49,8 +49,8 @@ class BaseTableViewController: UITableViewController {
     private func setVisitorView() {
         
         //自定义访客视图
-        let newView = UIView()
-        newView.backgroundColor = UIColor.purpleColor()
+        let newView = VisitorLoginView()
+//        newView.backgroundColor = UIColor.purpleColor()
         view = newView
 
     }
