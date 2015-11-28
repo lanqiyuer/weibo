@@ -10,8 +10,44 @@ import UIKit
 
 class VisitorLoginView: UIView {
 
-    //自定义访问视图
+    /**
+    设置对外提供访客视图的信息
+    参数1：提示文案
+    参数2：提示图片
     
+    */
+    
+    func setWithInfo(tipText: String,imageName: String?) {
+        
+        tipLabel.text = tipText
+        if let imgName = imageName {
+        circleView.image = UIImage(named: imgName)
+            iconView.hidden = true
+            //将圆圈视图放到最顶层
+            bringSubviewToFront(circleView)
+        } else {
+            
+            //首页圆圈视图 动画效果
+            startAnimation()
+            
+        }
+    }
+    
+    private func startAnimation() {
+       
+        let anim = CABasicAnimation(keyPath: "transform.rotation")
+        anim.repeatCount = MAXFLOAT
+        anim.duration = 20.0
+        anim.toValue = 2 * M_PI
+        
+        //完成动画 当视图处于非活跃状态 将动画移除
+        anim.removedOnCompletion = false
+        
+        //添加动画
+        circleView.layer.addAnimation(anim, forKey: nil)
+    }
+    
+    //自定义访问视图
    override init(frame: CGRect) {
         
         super.init(frame: frame)
@@ -31,7 +67,7 @@ class VisitorLoginView: UIView {
         addSubview(circleView)
         addSubview(backView)
         addSubview(iconView)
-        addSubview(tipLable)
+        addSubview(tipLabel)
         addSubview(loginBtn)
         addSubview(registerBtn)
         
@@ -68,20 +104,20 @@ class VisitorLoginView: UIView {
         addConstraint(NSLayoutConstraint(item: iconView, attribute: .CenterY, relatedBy: .Equal, toItem: circleView, attribute: .CenterY, multiplier: 1, constant: 0))
         
         //文字
-        addConstraint(NSLayoutConstraint(item: tipLable, attribute: .CenterX, relatedBy: .Equal, toItem: circleView, attribute: .CenterX, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: tipLable, attribute: .Top, relatedBy: .Equal, toItem: circleView, attribute:.Bottom, multiplier: 1, constant: 16))
-        addConstraint(NSLayoutConstraint(item: tipLable, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 230))
-        addConstraint(NSLayoutConstraint(item: tipLable, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 40))
+        addConstraint(NSLayoutConstraint(item: tipLabel, attribute: .CenterX, relatedBy: .Equal, toItem: circleView, attribute: .CenterX, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: tipLabel, attribute: .Top, relatedBy: .Equal, toItem: circleView, attribute:.Bottom, multiplier: 1, constant: 16))
+        addConstraint(NSLayoutConstraint(item: tipLabel, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 230))
+        addConstraint(NSLayoutConstraint(item: tipLabel, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 40))
         
         //登录按钮
-        addConstraint(NSLayoutConstraint(item: loginBtn, attribute: .Left, relatedBy: .Equal, toItem: tipLable, attribute: .Left, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: loginBtn, attribute: .Top, relatedBy: .Equal, toItem: tipLable, attribute:.Bottom, multiplier: 1, constant: 20))
+        addConstraint(NSLayoutConstraint(item: loginBtn, attribute: .Left, relatedBy: .Equal, toItem: tipLabel, attribute: .Left, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: loginBtn, attribute: .Top, relatedBy: .Equal, toItem: tipLabel, attribute:.Bottom, multiplier: 1, constant: 20))
         addConstraint(NSLayoutConstraint(item: loginBtn, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 100))
         addConstraint(NSLayoutConstraint(item: loginBtn, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 35))
         
         //注册按钮
-        addConstraint(NSLayoutConstraint(item: registerBtn, attribute: .Right, relatedBy: .Equal, toItem: tipLable, attribute: .Right, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: registerBtn, attribute: .Top, relatedBy: .Equal, toItem: tipLable, attribute:.Bottom, multiplier: 1, constant: 20))
+        addConstraint(NSLayoutConstraint(item: registerBtn, attribute: .Right, relatedBy: .Equal, toItem: tipLabel, attribute: .Right, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: registerBtn, attribute: .Top, relatedBy: .Equal, toItem: tipLabel, attribute:.Bottom, multiplier: 1, constant: 20))
         addConstraint(NSLayoutConstraint(item: registerBtn, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 100))
         addConstraint(NSLayoutConstraint(item: registerBtn, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1, constant: 35))
         
@@ -110,7 +146,7 @@ class VisitorLoginView: UIView {
     private lazy var iconView: UIImageView  = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
     
     //提示文案
-    private lazy var tipLable: UILabel = {
+    private lazy var tipLabel: UILabel = {
         let wordLabel = UILabel()
         
         wordLabel.text = "关注一些人，回这里看看有什么惊喜"
